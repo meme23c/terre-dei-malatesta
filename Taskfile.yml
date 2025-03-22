@@ -1,0 +1,21 @@
+# https://taskfile.dev
+
+version: '3'
+
+
+tasks:
+  dev:serve:
+    desc: Local development server
+    cmds:
+      - hugo server
+    silent: true
+
+  dev:build:
+    desc: Build production assets
+    cmds:
+      - hugo build --minify --gc -e production
+
+  dev:deploy:
+    desc: Deploy the demo
+    cmds:
+      - "rsync -aP public/ core@athena.velops.eu:caddy_static/www/hotel/"
