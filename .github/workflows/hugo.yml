@@ -44,7 +44,7 @@ jobs:
       - name: Install go task CLI
         run: go install github.com/go-task/task/v3/cmd/task@latest
       - name: Install hugo CLI
-        run: CGO_ENABLED=1 go install -tags extended,withdeploy github.com/gohugoio/hugo@${{ HUGO_VERSION }}
+        run: CGO_ENABLED=1 go install -tags extended,withdeploy github.com/gohugoio/hugo@${{ env.HUGO_VERSION }}
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
