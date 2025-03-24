@@ -34,13 +34,16 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: v0.145.0
+      GOPATH: $GITHUB_WORKSPACE
     steps:
       - name: Checkout project source with submodule
         uses: actions/checkout@v4.2.2
         with:
           submodules: recursive
-      - name: Install golang
-        run: sudo apt-get install golang
+      - name: Setup Go 1.22
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.22
       - name: Install go task CLI
         run: sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
       - name: Install hugo CLI
