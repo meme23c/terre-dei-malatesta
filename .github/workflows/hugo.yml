@@ -44,7 +44,7 @@ jobs:
         with:
           go-version: 1.22
       - name: Install go task CLI
-        working-directory: ../go
+        working-directory: $GOPATH
         run: sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d && echo "$HOME/bin" >> "$GITHUB_PATH"
       - name: Install hugo CLI
         run: wget https://github.com/gohugoio/hugo/releases/download/v0.145.0/hugo_extended_0.145.0_linux-amd64.deb && sudo apt-get install -y ./hugo_extended_0.145.0_linux-amd64.deb
